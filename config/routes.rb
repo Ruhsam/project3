@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'session/create'
+   root "home#index", as: "home_index"
+  get 'sessions/create'
 
-  get 'session/destroy'
+  get 'sessions/destroy'
 
   get 'home/index'
+
+  get 'home/about'
+
+  get 'home/services'
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
