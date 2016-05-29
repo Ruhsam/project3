@@ -24,4 +24,27 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 
-<input type="text" data-provide='datepicker' placeholder="Select Date Here" >
+<input type="text" class='datepicker' >
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
+
+<div class="scrolly">
+   <ul>
+      <li>
+         Testing the scroll box
+      </li>
+      <li>
+         Testing the scroll box
+      </li>
+      <li>
+         Testing the scroll box
+      </li>
+      <li>
+         Testing the scroll box
+      </li>
+   </ul>
+</div>

@@ -14,3 +14,9 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.scrolly {
+    width: 150px;
+    height: 150px;
+    overflow: scroll;
+}
