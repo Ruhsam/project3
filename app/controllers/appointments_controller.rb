@@ -7,8 +7,12 @@ class AppointmentsController < ApplicationController
 
   def availability
      req_date=Date.strptime(params[:date], "%m/%d/%Y")
-     date_check=Appointment.find_by(date:req_date)
-     render json:{tests:date_check}
+     date_check=Appointment.all.where(date:req_date)
+
+
+     time_check=date_check.map{|appointment| appointment.time}
+
+     render json:{tests:time_check}
      return
   end
 end
