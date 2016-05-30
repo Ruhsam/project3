@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 <div>
-  Welcome, <%= @user.first_name + " " + @user.last_name %>
+   Welcome, <%= @user.first_name + " " + @user.last_name %>
 </div>
 <p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
+   <strong>First name:</strong>
+   <%= @user.first_name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+   <strong>Last name:</strong>
+   <%= @user.last_name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+   <strong>Email:</strong>
+   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Phone number:</strong>
-  <%= @user.phone_number %>
+   <strong>Phone number:</strong>
+   <%= @user.phone_number %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
@@ -27,24 +27,48 @@
 <input type="text" class='datepicker' >
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
-</script>
+$(document).ready(function(){
+   $('.datepicker').datepicker();
 
-<div class="scrolly">
-   <ul>
-      <li>
-         Testing the scroll box
-      </li>
-      <li>
-         Testing the scroll box
-      </li>
-      <li>
-         Testing the scroll box
-      </li>
-      <li>
-         Testing the scroll box
-      </li>
-   </ul>
-</div>
+
+$(".datepicker").change(function(){
+   date_val=$(".datepicker").val();
+   if (date_val==""){
+      return
+   }
+   $.ajax({
+      method: 'get',
+      datatype: 'json',
+      url: '/appointments/availability',
+      data: {date: date_val},
+      success: function(data, status, jqxhr) {
+         $(".scrolly").html(JSON.stringify(data));
+      },
+      error: function(jqxhr, status, error) {
+         $(".scrolly").html("error");
+      },
+      complete: function(jqxhr, text_status) {
+
+      }
+
+      });
+   });
+   });
+   </script>
+
+   <div class="scrolly">
+      <ul>
+         <li>
+            Testing the scroll box
+         </li>
+         <li>
+            Testing the scroll box
+         </li>
+         <li>
+            Testing the scroll box
+         </li>
+         <li>
+            Testing the scroll box
+         </li>
+      </ul>
+   </div>

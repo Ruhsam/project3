@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'appointments/create'
+
+  get 'appointments/delete'
+
+  get 'appointments/availability'
+
    root "home#index", as: "home_index"
   get 'sessions/create'
 
@@ -9,6 +15,7 @@ Rails.application.routes.draw do
   get 'home/about'
 
   get 'home/services'
+
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

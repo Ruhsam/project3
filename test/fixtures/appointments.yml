@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-05-29
+  time: 2016-05-29 15:00:18
+  reason_for_visit: MyString
+  belongs_to: 
+
+two:
+  date: 2016-05-29
+  time: 2016-05-29 15:00:18
+  reason_for_visit: MyString
+  belongs_to: 

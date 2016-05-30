@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Appointment.create(date: '06/06/2016', time: '1100', reason_for_visit: 'elbow hurts')
+Appointment.create(date: '07/06/2016', time: '1100', reason_for_visit: 'knee hurts')
