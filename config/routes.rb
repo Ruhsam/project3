@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  get 'appointments/create'
-
-  get 'appointments/delete'
+  root "home#index", as: "home_index"
+  get 'appointments/' => 'appointments#index'
+  post 'appointments' => 'appointments#create'
+  delete 'appointments' => 'appointments#destroy'
 
   get 'appointments/availability'
+  post 'sessions' => 'sessions#create'
 
-   root "home#index", as: "home_index"
-  get 'sessions/create'
-
-  get 'sessions/destroy'
+  delete 'sessions' => 'sessions#destroy'
 
   get 'home/index'
 
