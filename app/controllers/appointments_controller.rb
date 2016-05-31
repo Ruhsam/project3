@@ -9,8 +9,9 @@ class AppointmentsController < ApplicationController
       end
    end
    def create
-      appointment = Appointment.create(appointment_params)
+      appointment = Appointment.new(appointment_params)
       appointment.user = current_user
+      appointment.save
       flash[:success] = "Appointment created!"
       redirect_to user_path(current_user)
    end

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
    # GET /users/1.json
    def show
       @user = User.find_by_id(params[:id])
-      # @appointment = Appointments
+      @appointments = @user.appointments.collect()
       render :show
    end
 
