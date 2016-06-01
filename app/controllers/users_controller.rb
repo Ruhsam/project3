@@ -5,7 +5,7 @@ class UsersController < ApplicationController
    # GET /users
    # GET /users.json
    def index
-      @users = User.all
+      @users = redirect_to home_index_path
    end
 
    # GET /users/1

@@ -1,4 +1,8 @@
+<!-- ******* User Authorization ******** -->
 <% if @user == current_user %>
+
+<!-- ******* User Information Start ******** -->
+
 <div class="container-fluid">
 
    <div class="row">
@@ -30,7 +34,7 @@
          <%= link_to 'Edit', edit_user_path(@user) %> <br />
       </div>
 
-
+      <!-- ******* Appointment Scheduler Beginning ******** -->
 
 
       <form action="/appointments" method="post">
@@ -90,12 +94,15 @@
       </div>
    </div>
 </div>
+
+<!-- ******* Appointments List Start ******** -->
+
 <div class="col-xs-12 col-lg-12">
    <p>
       <hr />
    </p>
    <div class="container">
-      <div class="row">
+      <div class="row vertical-center-row"> ***
          <h3>Appointment List</h3>
       </div>
    </div>
@@ -124,8 +131,11 @@
       <hr />
    </p>
 </div>
-<% else %>
-   <% if current_user %>
+
+<!-- ******* User Authentication ******** -->
+
+   <% else %>
+      <% if current_user %>
       <h1 class="denied"> <%= current_user.first_name %> is not authorized to view this page. </h1>
    <% else %>
       <h1 class="denied"> You are not authorized to view this page. </h1>
