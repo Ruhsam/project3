@@ -8,7 +8,7 @@
 </head>
 <body>
 
-   <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #EBFFD6;">
       <% if current_user %>
       <%= link_to "Profile", user_path(current_user) %>
       <%= link_to "Log Out", sessions_path, 'data-method' => :delete %>
@@ -28,9 +28,9 @@
          </div>
          <% end %>
 
-      <div class="navbar-form navbar-right">
-         <%= link_to "Sign Up Today!", new_user_path, class: "btn btn-primary" %>
-      </div>
+         <div class="navbar-form navbar-right">
+            <%= link_to "Sign Up Today!", new_user_path, class: "btn btn-primary" %>
+         </div>
       </div>
 
       <% end %>
@@ -69,7 +69,7 @@
    <% end %>
 
    <!-- beginning page content -->
-
+<br />
    <% flash.each do |name, msg| %>
    <p>
       <small> <%= name.capitalize %>: <%= msg %> </small>
@@ -77,6 +77,8 @@
    <% end %>
 
    <%= yield %>
+
+   <hr />
 
    <footer class="footer">
       <div class="container">

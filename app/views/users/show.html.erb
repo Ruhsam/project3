@@ -1,106 +1,133 @@
-<p id="notice"><%= notice %></p>
-<div>
-   Welcome, <%= @user.first_name + " " + @user.last_name %>
+<% if @user == current_user %>
+<div class="container-fluid">
+
+   <div class="row">
+      <div class="col-xs-12 col-lg-5">
+         <p id="notice"><%= notice %></p>
+         <div>
+            <h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
+         </div>
+         <p>
+            <strong>First name:</strong>
+            <%= @user.first_name %>
+         </p>
+
+         <p>
+            <strong>Last name:</strong>
+            <%= @user.last_name %>
+         </p>
+
+         <p>
+            <strong>Email:</strong>
+            <%= @user.email %>
+         </p>
+
+         <p>
+            <strong>Phone number:</strong>
+            <%= @user.phone_number %>
+         </p>
+
+         <%= link_to 'Edit', edit_user_path(@user) %> <br />
+      </div>
+
+
+
+
+      <form action="/appointments" method="post">
+
+         <strong><h2>Appointment Time</h2></strong>
+         <input type="text" name="reason_for_visit" placeholder="Reason for Visit"></input>
+         <input type="text" name="date" class='datepicker' placeholder="Select a Date"></input>
+         <input type="submit" />
+
+         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+
+
+         <div class="scrolly">
+
+            <script type="text/javascript">
+            $(document).ready(function(){
+               $('.datepicker').datepicker();
+
+
+               $(".datepicker").change(function(){
+                  date_val=$(".datepicker").val();
+                  if (date_val==""){
+                     return
+                  }
+                  $.ajax({
+                     method: 'get',
+                     datatype: 'json',
+                     url: '/appointments/availability',
+                     data: {date: date_val},
+                     success: onSuccess,
+                     error: onError,
+
+                  });
+               });
+               function create_item(appointment){
+                  output='<div class="radio"><label><input name="time" type="radio" value="'
+                  output+=appointment
+                  output+='">'
+                  output+=appointment
+                  output+='</label></div>'
+                  return output
+               }
+               function onSuccess(data, status, jqxhr) {
+                  output=""
+                  available_app=data.forEach(function(item){
+                     output+=create_item(item)
+                  })
+                  $(".scrolly").html(output);
+               }
+               function onError(jqxhr, status, error) {
+                  $(".scrolly").html("error");
+               }
+            });
+            </script>
+         </form>
+      </div>
+   </div>
 </div>
-<p>
-   <strong>First name:</strong>
-   <%= @user.first_name %>
-</p>
-
-<p>
-   <strong>Last name:</strong>
-   <%= @user.last_name %>
-</p>
-
-<p>
-   <strong>Email:</strong>
-   <%= @user.email %>
-</p>
-
-<p>
-   <strong>Phone number:</strong>
-   <%= @user.phone_number %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> <br />
-
-
-<form action="/appointments" method="post">
-
-   <strong><h2>Appointment Time</h2></strong>
-   <input type="text" name="reason_for_visit" placeholder="Reason for Visit"></input>
-   <input type="text" name="date"class='datepicker' placeholder="Select a Date"></input>
-   <input type="submit" />
-   <div class="scrolly"></div>
-   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-</form>
-
-<script type="text/javascript">
-$(document).ready(function(){
-   $('.datepicker').datepicker();
-
-
-   $(".datepicker").change(function(){
-      date_val=$(".datepicker").val();
-      if (date_val==""){
-         return
-      }
-      $.ajax({
-         method: 'get',
-         datatype: 'json',
-         url: '/appointments/availability',
-         data: {date: date_val},
-         success: onSuccess,
-         error: onError,
-
-      });
-
-   });
-   function create_item(appointment){
-      output='<div class="radio"><label><input name="time" type="radio" value="'
-      output+=appointment
-      output+='">'
-      output+=appointment
-      output+='</label></div>'
-      return output
-   }
-   function onSuccess(data, status, jqxhr) {
-      output=""
-      available_app=data.forEach(function(item){
-         output+=create_item(item)
-      })
-      $(".scrolly").html(output);
-   }
-   function onError(jqxhr, status, error) {
-      $(".scrolly").html("error");
-   }
-});
-</script>
-<p>
-   <hr />
-</p>
-
-<h3>Appointment List</h3>
-
-<% @appointments.each do |apt|  %>
-<%= apt.date %>
-<%= apt.time %>
-<%= apt.reason_for_visit %>
-<br />
-
-<!-- <div class="row panel-body">
-   <div class="col-sm-5">
-      <h2 class="Date"><%= apt.date %></h2>
+<div class="col-xs-12 col-lg-12">
+   <p>
+      <hr />
+   </p>
+   <div class="container">
+      <div class="row">
+         <h3>Appointment List</h3>
+      </div>
    </div>
-   <div class="col-sm-7">
-      <h2 class="Time"><%= apt.time %></h2>
-   </div>
-   <div class="col-sm-7">
-      <h2 class="Reason for Visit"><%= apt.reason_for_visit %></h2>
-   </div>
-</div> -->
 
+   <div class="scrolly2" >
+      <table class="table table-striped">
+         <thead class="thead-default">
+            <tr>
+               <th>Date</th>
+               <th>Time</th>
+               <th>Reason for Visit</th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @appointments.each do |apt|  %>
+            <tr>
+               <th scope="row"><%= apt.date %></th>
+               <td><%= apt.time %></td>
+               <td><%= apt.reason_for_visit %></td>
+            </tr>
+            <% end %>
+         </tbody>
+      </table>
+   </div>
+   <p>
+      <hr />
+   </p>
+</div>
+<% else %>
+   <% if current_user %>
+      <h1 class="denied"> <%= current_user.first_name %> is not authorized to view this page. </h1>
+   <% else %>
+      <h1 class="denied"> You are not authorized to view this page. </h1>
+   <% end %>
 <% end %>
-<p>
-   <hr />
-</p>

@@ -9,7 +9,8 @@ class AppointmentsController < ApplicationController
       end
    end
    def create
-      appointment = Appointment.new(appointment_params)
+      appointment = Appointment.create(appointment_params)
+      # puts appointment_params
       appointment.user = current_user
       appointment.save
       flash[:success] = "Appointment created!"
@@ -35,7 +36,7 @@ class AppointmentsController < ApplicationController
       time_check=Appointment.all.where(date:req_date).pluck(:time)
 
       work_hour_check=WorkHour.where(week_day:week_day).where.not(hour: [time_check]).pluck(:hour)
-
+      puts work_hour_check
       render json:work_hour_check
       return
    end

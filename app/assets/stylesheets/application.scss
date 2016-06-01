@@ -16,7 +16,45 @@
 @import "bootstrap";
 
 .scrolly {
-    width: 650px;
+    width: 450px;
     height: 250px;
     overflow: scroll;
 }
+
+.scrolly2 {
+    width: 950px;
+    height: 250px;
+    overflow: scroll;
+}
+
+.jumbotron {
+   background-image: url("hands2.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   height: 200px;
+   color: white;
+ }
+
+ body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #FFFFFF;
+}
+
+.scrolly {
+   border: 2px;
+   border-style: groove;
+}
+
+ .footer {
+   position: fixed;
+   bottom: 0;
+   opacity: 0.4;
+   width: 100%;
+   /* Set the fixed height of the footer here */
+   height: 30px;
+   background-color: #EBFFD6;
+ }
