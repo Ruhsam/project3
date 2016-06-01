@@ -1,10 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <title>About Us</title>
-   </head>
-   <body>
-<h1>About Us</h1>
-   </body>
-</html>
+<head>
+   <meta charset="utf-8">
+   <title>About Us</title>
+</head>
+<body>
+
+   <div class="mumbotron mumbotron-fluid">
+      <div class="container">
+         <h1 class="display-3">Fluid jumbotron</h1>
+         <p class="lead">This is a modified jumbotron that occupies
+            the entire horizontal space of its parent.</p>
+         </div>
+      </div>
+
+      <h1 >About Us</h1>
+<hr />
+
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-6">
+               <div class="card">
+  <img class="card-img-top" url="~/wdi/project3/app/assets/images/handscupped2.png"
+       alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">Chiropractic Services</h4>
+    <p class="card-text">Some quick example text to build on
+    the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+            </div>
+
+            <div class="col-lg-6">
+
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-lg-6">
+               <img-circle src="handscupped2.png" class="about-pic" class="img-responsive"></img-circle>
+            </div>
+
+            <div class="col-lg-6">
+               <div class="card">
+               <img class="card-img-top" url="~/wdi/project3/app/assets/images/handscupped2.png"
+               alt="Card image cap">
+               <div class="card-block">
+               <h4 class="card-title">Naturopathic Healing Services</h4>
+               <p class="card-text">Some quick example text to build on
+               the card title and make up the bulk of the card's content.</p>
+               </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+            <!-- ******** Super Secret Easter Egg ******** -->
+
+            <script type="text/javascript">
+            $(document).keypress("c",function(e) {
+               if(e.ctrlKey)
+               alert("Ctrl+C was pressed!!");
+            });
+            </script>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal7">
+               Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+               <div class="modal-dialog " role="document">
+                  <div class="modal-content">
+
+                     <div class="card">
+                        <img class="card-img" src="http://images.nationalgeographic.com/wpf/media-live/photos/000/221/cache/mount-hood-road-trip-1_22153_600x450.jpg" alt="Card image">
+                        <div class="card-img-overlay">
+                           <p class="card-text">
+
+                              <form>
+                                 <fieldset class="form-group">
+                                    <input type="text" class="form-control" id="dad" placeholder=" ">
+                                 </fieldset>
+
+                                 <script type="text/javascript">
+                                 $(document).ready(function(){
+
+
+                                    $("#dad").change(function(){
+                                       input_val=$("#dad").val();
+                                       if (input_val=="love you dad"){
+                                       }
+                                       // alert("Hello! I am an alert box!!");
+
+                                       ajax(
+                                          {
+                                             url: 'https://api.particle.io/v1/devices/310047001147353138383138/led?access_token=010698382e0bcb2c511ca5395c518fa428bba75b',
+                                             method: 'post',
+                                             id: '310047001147353138383138'
+                                             type: 'json',
+                                             args: 'on',
+                                          },
+                                       );
+                                    })
+                                 });
+                                 </script>
+                              </form>
+
+                           </p>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+
+         </body>
+         </html>

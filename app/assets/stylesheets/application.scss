@@ -27,6 +27,15 @@
     overflow: scroll;
 }
 
+.mumbotron {
+   background-image: url("tea.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   height: 400px;
+   color: white;
+ }
+
 .jumbotron {
    background-image: url("hands2.png");
    background-repeat: no-repeat;
@@ -36,13 +45,13 @@
    color: white;
  }
 
- body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333333;
-    background-color: #FFFFFF;
-}
+//  body {
+//     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//     font-size: 14px;
+//     line-height: 1.42857143;
+//     color: #333333;
+//     background-color: #FFFFFF;
+// }
 
 .scrolly {
    border: 2px;
