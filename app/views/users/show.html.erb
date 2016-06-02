@@ -5,13 +5,19 @@
 <!-- ******* User Information Start ******** -->
 
 <div class="container-fluid">
-
+<div class="infos">
    <div class="row">
       <div class="col-xs-12 col-lg-5">
+
          <p id="notice"><%= notice %></p>
          <div>
             <h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
          </div>
+
+         <div class="infos" class="card">
+           <div class="card-block">
+             <p class="card-text">
+
          <p>
             <strong>First name:</strong>
             <%= @user.first_name %>
@@ -33,6 +39,9 @@
          </p>
 
          <%= link_to 'Edit', edit_user_path(@user) %> <br />
+      </p>
+   </div>
+</div>
       </div>
 
       <!-- ******* Appointment Scheduler Beginning ******** -->
@@ -41,7 +50,7 @@
       <form action="/appointments" method="post">
 
          <strong><h2>Appointment Time</h2></strong>
-         <input type="text" name="reason_for_visit" placeholder="Reason for Visit"></input>
+         <input type="text" name="reason_for_visit" class='textbox' placeholder="Reason for Visit"></input>
          <input type="text" name="date" class='datepicker' placeholder="Select a Date"></input>
          <input type="submit" />
 
@@ -95,6 +104,7 @@
       </div>
    </div>
 </div>
+</div>
 
 <!-- ******* Appointments List Start ******** -->
 
@@ -102,8 +112,10 @@
    <p>
       <hr />
    </p>
-   <div class="container">
-      <div class="row vertical-center-row"> ***
+   <div class="infos">
+
+   <div id="appTitle" class="container">
+      <div class="row vertical-center-row">
          <h3>Appointment List</h3>
       </div>
    </div>
@@ -128,10 +140,11 @@
          </tbody>
       </table>
    </div>
-   <p>
-      <hr />
-   </p>
 </div>
+<br />
+<br />
+</div>
+
 
 <!-- ******* User Authentication ******** -->
 
