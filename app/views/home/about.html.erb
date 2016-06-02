@@ -58,62 +58,72 @@
 
             <script type="text/javascript">
             $(document).keypress("c",function(e) {
-               if(e.ctrlKey)
-               console.log("Ctrl+C was pressed!!")
-               $('#myModal7').show()
+               if(e.ctrlKey) {
+                  console.log("Ctrl+C was pressed!!")
+                  $('#myModal').show()
+
+               };
+            });
+            </script>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">x</span>
+                <input type="text" name="fname"><br>
+              </div>
+
+            </div>
+
+            <script>
+            $("#myModal").change(function(){
+               input_val=$("#myModal").val();
+               if (input_val=="hey dad"){
+               }
+               alert("Hello! I am an alert box!!");
+
+               // ajax(
+               //    {
+               //       url: 'https://api.particle.io/v1/devices/310047001147353138383138/led?access_token=010698382e0bcb2c511ca5395c518fa428bba75b',
+               //       method: 'post',
+               //       id: '310047001147353138383138'
+               //       type: 'json',
+               //       args: 'on',
+               //    },
+               // );
             });
             </script>
 
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal7">
-               Launch demo modal
-            </button>
+            <script>
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
-               <div class="modal-dialog " role="document">
-                  <div class="modal-content">
+            // Get the modal
+            var modal = document.getElementById('myModal');
 
-                     <div class="card">
-                        <img class="card-img" src="http://images.nationalgeographic.com/wpf/media-live/photos/000/221/cache/mount-hood-road-trip-1_22153_600x450.jpg" alt="Card image">
-                        <div class="card-img-overlay">
-                           <p class="card-text">
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
 
-                              <form>
-                                 <fieldset class="form-group">
-                                    <input type="text" class="form-control" id="dad" placeholder=" ">
-                                 </fieldset>
-
-                                 <script type="text/javascript">
-                                 $(document).ready(function(){
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
 
-                                    $("#dad").change(function(){
-                                       input_val=$("#dad").val();
-                                       if (input_val=="hey dad"){
-                                       }
-                                       alert("Hello! I am an alert box!!");
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
 
-                                       // ajax(
-                                       //    {
-                                       //       url: 'https://api.particle.io/v1/devices/310047001147353138383138/led?access_token=010698382e0bcb2c511ca5395c518fa428bba75b',
-                                       //       method: 'post',
-                                       //       id: '310047001147353138383138'
-                                       //       type: 'json',
-                                       //       args: 'on',
-                                       //    },
-                                       // );
-                                    })
-                                 });
-                                 </script>
-                              </form>
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
 
-                           </p>
-                        </div>
-                     </div>
+            </script>
+         </form>
 
-                  </div>
-               </div>
-            </div>
+      </p>
+   </div>
+</div>
 
-         </body>
+</body>
