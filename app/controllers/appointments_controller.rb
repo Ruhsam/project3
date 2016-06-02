@@ -14,13 +14,7 @@ class AppointmentsController < ApplicationController
       # puts appointment_params
       appointment.user = current_user
       appointment.save
-      AppointmentMailer.appointment_created().deliver_now
-
-########### send HTTP for visual notification here ########
-
-
-#####################################################
-
+      
       flash[:success] = "Appointment created!"
       redirect_to user_path(current_user)
    end
