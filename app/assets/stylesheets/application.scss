@@ -27,6 +27,15 @@
     overflow: scroll;
 }
 
+.bumbotron {
+   background-image: url("drop.jpeg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   height: 400px;
+   color: white;
+ }
+
 .mumbotron {
    background-image: url("tea.png");
    background-repeat: no-repeat;

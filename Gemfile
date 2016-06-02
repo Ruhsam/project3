@@ -35,6 +35,7 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem "better_errors"
+gem "figaro"
 
 # Use Unicorn as the app server
 # gem 'unicorn'

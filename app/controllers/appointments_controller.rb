@@ -9,10 +9,18 @@ class AppointmentsController < ApplicationController
       end
    end
    def create
+      @user = User.find_by_id(params[:id])
       appointment = Appointment.create(appointment_params)
       # puts appointment_params
       appointment.user = current_user
       appointment.save
+      AppointmentMailer.appointment_created().deliver_now
+
+########### send HTTP for visual notification here ########
+
+
+#####################################################
+
       flash[:success] = "Appointment created!"
       redirect_to user_path(current_user)
    end
