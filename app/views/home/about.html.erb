@@ -59,7 +59,8 @@
             <script type="text/javascript">
             $(document).keypress("c",function(e) {
                if(e.ctrlKey)
-               alert("Ctrl+C was pressed!!");
+               console.log("Ctrl+C was pressed!!")
+               $('#myModal7').show()
             });
             </script>
 
@@ -91,17 +92,17 @@
                                        input_val=$("#dad").val();
                                        if (input_val=="hey dad"){
                                        }
-                                       // alert("Hello! I am an alert box!!");
+                                       alert("Hello! I am an alert box!!");
 
-                                       ajax(
-                                          {
-                                             url: 'https://api.particle.io/v1/devices/310047001147353138383138/led?access_token=010698382e0bcb2c511ca5395c518fa428bba75b',
-                                             method: 'post',
-                                             id: '310047001147353138383138'
-                                             type: 'json',
-                                             args: 'on',
-                                          },
-                                       );
+                                       // ajax(
+                                       //    {
+                                       //       url: 'https://api.particle.io/v1/devices/310047001147353138383138/led?access_token=010698382e0bcb2c511ca5395c518fa428bba75b',
+                                       //       method: 'post',
+                                       //       id: '310047001147353138383138'
+                                       //       type: 'json',
+                                       //       args: 'on',
+                                       //    },
+                                       // );
                                     })
                                  });
                                  </script>
