@@ -31,7 +31,9 @@ class UsersController < ApplicationController
       if @user.save
          login(@user) # <-- login the user
          redirect_to @user # <-- go to show
+         return
       end
+      redirect_to new_user_path
    end
 
    # PATCH/PUT /users/1

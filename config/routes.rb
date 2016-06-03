@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'home/about'
 
+  post 'home' => 'home#post'
+
   get 'home/services'
 
 

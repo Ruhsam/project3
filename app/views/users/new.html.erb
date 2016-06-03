@@ -11,10 +11,8 @@
         <%= f.input :email, placeholder: 'user@domain.com ' %>
         <%= f.input :password, hint: 'password must be > 5 characters ' %>
         <%= f.button :submit, class: 'btn btn-success btn-block btn-md' %>
+        <%= link_to 'Back', users_path %>
       <% end %>
     </div>
   </div>
 </div>
-
-
-<%= link_to 'Back', users_path %>

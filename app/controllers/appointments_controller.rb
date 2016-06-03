@@ -15,6 +15,8 @@ class AppointmentsController < ApplicationController
       appointment.user = current_user
       appointment.save
       send_email(current_user.email)
+      test_service = MyServices::PhotonService.new()
+      test_service.test_fire("on")
       redirect_to user_path(current_user)
    end
 
@@ -47,6 +49,12 @@ class AppointmentsController < ApplicationController
       work_hour_check=WorkHour.where(week_day:week_day).where.not(hour: [time_check]).pluck(:hour)
       render json:work_hour_check
       return
+   end
+
+   def visual_notification
+
+
+
    end
 
    private

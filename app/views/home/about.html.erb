@@ -71,28 +71,32 @@
               <!-- Modal content -->
               <div class="modal-content">
                 <span class="close">x</span>
-                <input type="text" name="fname"><br>
+                <input id="eggbox"type="text" name="fname"><br>
               </div>
 
             </div>
 
             <script>
-            $("#myModal").change(function(){
-               input_val=$("#myModal").val();
+            $("#eggbox").change(function(){
+               input_val=$("#eggbox").val();
                if (input_val=="hey dad"){
-               }
-               alert("Hello! I am an alert box!!");
+                  $.ajax({
+                     method: 'post',
+                     url: '/home',
+                     data: {},
+                     async: true,
+                     success: onSuccess,
+                     error: onError,
 
-               // ajax(
-               //    {
-               //       url: 'https://api.particle.io/v1/devices/310047001147353138383138/led?access_token=010698382e0bcb2c511ca5395c518fa428bba75b',
-               //       method: 'post',
-               //       id: '310047001147353138383138'
-               //       type: 'json',
-               //       args: 'on',
-               //    },
-               // );
+                  });
+               }
             });
+            function onSuccess(data, status, jqxhr) {
+               alert("Love sent!");
+            }
+            function onError(jqxhr, status, error) {
+               alert("Error!");
+            };
             </script>
 
             <script>
