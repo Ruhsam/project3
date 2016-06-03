@@ -8,11 +8,10 @@ class AppointmentsController < ApplicationController
    end
 
    def create
-      req_date=Date.strptime(appointment_params[:date], "%m/%d/%Y")
-      appointment_params[:date] = req_date
+      #  req_date
       appointment = Appointment.create(appointment_params)
-      puts "\n\n\n" + appointment_params[:date] + "\n\n\n"
-      # puts appointment_params
+      req_date=Date.strptime(appointment_params[:date], "%m/%d/%Y")
+      appointment.date = req_date
       appointment.user = current_user
       appointment.save
       send_email(current_user.email)
