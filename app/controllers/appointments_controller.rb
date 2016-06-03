@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
       # else
       #    redirect_to home_index_path
    end
-   
+
    def send_email(email)
       if email.nil?
          flash[:error] = "No email"
@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
       appointment.date = req_date
       appointment.user = current_user
       appointment.save
-      send_email(current_user.email)
+      
       test_service = MyServices::PhotonService.new()
       test_service.test_fire("on")
       redirect_to user_path(current_user)

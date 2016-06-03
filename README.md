@@ -12,6 +12,7 @@ Ruby
 Rails
 jQuery
 PostgreSQL
+C Language
 
 
 **** Installation steps ****
