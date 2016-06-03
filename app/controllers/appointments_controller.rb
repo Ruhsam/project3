@@ -6,6 +6,15 @@ class AppointmentsController < ApplicationController
       # else
       #    redirect_to home_index_path
    end
+   
+   def send_email(email)
+      if email.nil?
+         flash[:error] = "No email"
+         return
+      end
+      AppointmentMailer.appointment_created(email).deliver_now
+      flash[:success] = "Appointment created!"
+   end
 
    def create
       #  req_date
@@ -18,15 +27,6 @@ class AppointmentsController < ApplicationController
       test_service = MyServices::PhotonService.new()
       test_service.test_fire("on")
       redirect_to user_path(current_user)
-   end
-
-   def send_email(email)
-      if email.nil?
-         flash[:error] = "No email"
-         return
-      end
-      AppointmentMailer.appointment_created(email).deliver_now
-      flash[:success] = "Appointment created!"
    end
 
    def destroy
