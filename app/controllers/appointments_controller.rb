@@ -1,22 +1,31 @@
 class AppointmentsController < ApplicationController
    def index
-      @user = User.find_by_id(params[:id])
       @appointments = User.appointments
-      if current_user == @user
+      current_user
          render :index
       # else
       #    redirect_to home_index_path
-      end
    end
+
    def create
-      @user = User.find_by_id(params[:id])
+      req_date=Date.strptime(appointment_params[:date], "%m/%d/%Y")
+      appointment_params[:date] = req_date
       appointment = Appointment.create(appointment_params)
+      puts "\n\n\n" + appointment_params[:date] + "\n\n\n"
       # puts appointment_params
       appointment.user = current_user
       appointment.save
-      
-      flash[:success] = "Appointment created!"
+      send_email(current_user.email)
       redirect_to user_path(current_user)
+   end
+
+   def send_email(email)
+      if email.nil?
+         flash[:error] = "No email"
+         return
+      end
+      AppointmentMailer.appointment_created(email).deliver_now
+      flash[:success] = "Appointment created!"
    end
 
    def destroy
@@ -36,9 +45,7 @@ class AppointmentsController < ApplicationController
       req_date=Date.strptime(params[:date], "%m/%d/%Y")
       week_day=req_date.wday
       time_check=Appointment.all.where(date:req_date).pluck(:time)
-
       work_hour_check=WorkHour.where(week_day:week_day).where.not(hour: [time_check]).pluck(:hour)
-      puts work_hour_check
       render json:work_hour_check
       return
    end
@@ -46,6 +53,6 @@ class AppointmentsController < ApplicationController
    private
 
    def appointment_params
-      params.permit(:date, :time, :reason_for_visit)
+      params.permit(:date, :email, :time, :reason_for_visit)
    end
 end

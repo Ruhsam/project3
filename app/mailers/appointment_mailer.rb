@@ -5,9 +5,8 @@ class AppointmentMailer < ApplicationMailer
   #
   #   en.appointment_mailer.appointment_created.subject
   #
-  def appointment_created
-    @greeting = "Hi"
+  def appointment_created(email)
 
-    mail to: "ruhsam.dev@gmail.com"
+    mail(to: email, from:"ruhsam.dev@gmail.com", subject: 'test')
   end
 end

@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 gem "better_errors"
 gem "figaro"
+gem 'jquery-turbolinks'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

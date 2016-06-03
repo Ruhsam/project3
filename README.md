@@ -24,4 +24,10 @@ Link to your wireframes – sketches of major views / interfaces in your applica
 
 Link to your entity relationship diagrams – plan out your data relationships before coding.
 
+
+
 Descriptions of any unsolved problems or future features.
+
+Prepend rendered data of past appointments.
+Add delete function for appointments.
+Add 24 hour reminder email notification.
