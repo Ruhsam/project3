@@ -34,6 +34,7 @@ class UsersController < ApplicationController
          return
       end
       redirect_to new_user_path
+      flash[:error] = "User not created"
    end
 
    # PATCH/PUT /users/1
