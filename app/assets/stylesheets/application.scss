@@ -14,11 +14,12 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "material";
 
 
-#navbar {
+#thebar {
    height: inherit;
-   opacity: 0.9;
+   box-shadow: 2px 2px 2px #888888;
    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 14px;
 }
@@ -63,14 +64,6 @@
    color: white;
  }
 
-//  body {
-//     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//     font-size: 14px;
-//     line-height: 1.42857143;
-//     color: #333333;
-//     background-color: #FFFFFF;
-// }
-
 .scrolly {
    border: 2px;
    border-style: groove;
@@ -101,13 +94,6 @@
    height: 30px;
    background-color: #EBFFD6;
  }
-
-
-
-
-
-
-
  /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -144,4 +130,27 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+// test card
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('/assets/handscupped.jpeg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.demo-layout-transparent {
+  background: url('../assets/demos/transparent.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
 }

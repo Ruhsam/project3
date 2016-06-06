@@ -2,6 +2,7 @@
    <title>Project3</title>
    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
    <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,25 +27,34 @@
             <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
          </div>
          <div class="form-group">
-            <%= f.submit "Log In", class: "btn btn-success" %>
+
+            <%= f.submit "Log In", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
          </div>
          <% end %>
 
          <div class="navbar-form navbar-right">
-            <%= link_to "Sign Up Today!", new_user_path, class: "btn btn-primary" %>
+            <%= link_to "Sign Up Today!", new_user_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
          </div>
-
 
          <% end %>
 
          <div class="container">
             <div class="navbar-header">
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                </button>
+               <div
+
+               <nav class="mdl-navigation mdl-layout--large-screen-only">
+<!--
+                   <div class="mdl-layout-spacer"></div>
+                      <a class="mdl-navigation__link" href="">Services</a>   ||
+                      <a class="mdl-navigation__link" href="">About Us</a>
+                    </nav> -->
                <div class="navbar-brand"><%= link_to "Sage Family Chiropractic", "/" %> || <%= link_to "Services", home_services_path %> || <%= link_to "About Us", home_about_path %></div>
             </div>
          </div>
